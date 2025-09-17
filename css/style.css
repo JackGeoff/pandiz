@@ -9,19 +9,20 @@
     /* Color Palette */
     --gold: #957e3d;
     --gold-light: #bfa181;
-    --dark-blue: #0a1828;
+    --dark-blue: #101113;
     --blue: #002349;
     --eggplant: blueviolet;
+    --accent: #61CE70;
 
     /* Text and Backgrounds */
     --primary-bg: var(--dark-blue);
     --secondary-bg: var(--eggplant);
-    --primary-text: var(--gold);
+    --primary-text: var(--accent);
     --secondary-text: var(--blue);
     --button-hover: var(--eggplant);
 
     /* Miscellaneous */
-    --border-highlight: var(--gold-light);
+    --border-highlight: var(--accent);
 }
 body {
     background-color: var(--primary-bg); /* Dark blue for luxury feel */
@@ -74,121 +75,245 @@ box-shadow: 0 5px 15px rgba(160, 0, 109, 0.3); /* Eggplant shadow */
     transform: translateY(-2px); /* Slight lift effect */
 }
 
-.cardcover {
-  display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center;     /* vertical centering */
-  min-height: 100vh;       /* full height */
-  background: var(--dark-blue);        /* page background (optional) */
-  margin: 0;
+.about {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--surface);
 }
-.card {
-  width: 900px;
-  height: 600px;
-  border-radius: 4px;
-  background: #002349;
-  display: flex;
-  gap: 1px;
-  padding: .4em;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: white;
+}
+.section-subtitle {
+    font-size: 1.125rem;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+}
+.about-story, .about-achievements {
+    margin-bottom: 2px;
+}
+
+
+/* About Section */
+.about {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--surface);
+}
+
+.card {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    border-radius: 8px;
+    background: var(--primary-hover);
+    display: flex;
+    gap: 5px;
+    padding: .4em;
+    margin: 0 auto;
+}
 .card p {
   height: 100%;
   flex: 1;
   overflow: hidden;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 6px;
   transition: all .5s;
-  background: #002;
-  border: 1px solid #dc00f9;
+  background: #212121;
+  border: 2px solid var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card p:hover {
-  flex: 4; /* expands hovered panel */
-}
-
-.card p img {
+.card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: all .5s;
-  transform: rotate(-90deg); /* start rotated like your text */
+  object-fit: cover;          /* keeps images neat without stretching */
+  border-radius: 6px;
 }
 
-.card p span {
-  min-width: 14em;
-  padding: .5em;
+/* Expand effect stays */
+.card p:hover {
+  flex: 4;
+}
+.mission {
+  padding: var(--spacing-3xl) 0;
+}
+
+.mission-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+
+.mission-statement {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: var(--spacing-2xl);
+  font-style: italic;
+}
+
+.mission-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.value-item {
+  padding: 1.5rem!important;
+  background: transparent;
+  border-radius: 20px;
+  border: var(--accent) 2px solid ;
   text-align: center;
-  transform: rotate(-90deg);
-  transition: all .5s;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  letter-spacing: .1em;
+  transition: transform var(--transition-normal);
+}
+
+.value-item:hover {
+  transform: translateY(-4px);
+}
+
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.value-item h3 {
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: white;
+}
+
+.value-item p {
+  color: white;
+  font-size: 0.875rem;
+}
+
+.achievement-list {
+  list-style: none;
+}
+
+.achievement-list li {
+  padding: 10px 0;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+}
+
+.achievement-list li:last-child {
+  border-bottom: none;
+}
+
+.mission-photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 12px 24px var(--shadow-lg);
+}
+
+/* ✅ Tablet and below (stack text above cards) */
+@media (max-width: 1024px) {
+  /* About section layout */
+  .about-content {
+    grid-template-columns: 1fr; /* stack vertically */
+    text-align: center;         /* centre text */
+  }
+
+  .about-story, 
+  .about-achievements {
+    order: -1;   /* ensures text comes before cards */
+  }
+
+  /* Mission section layout */
+  .mission-content {
+    grid-template-columns: 1fr; /* stack vertically */
+    text-align: center;
+  }
+
+  .mission-statement {
+    order: -1;   /* text above values/photos */
+  }
+
+  .mission-values {
+    grid-template-columns: 1fr; /* stack values vertically */
+  }
+
+  .mission-photo {
+    margin-top: 20px;
+    max-width: 90%;
+  }
+}
+
+/* ✅ Mobile-specific refinements */
+@media (max-width: 768px) {
+  .about-content,
+  .mission-content {
+    gap: 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .mission-statement {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
 }
 
 
-.card p:hover img {
-  transform: rotate(0); /* straighten image when expanded */
+/* ✅ Tablet adjustments */
+@media (max-width: 1024px) {
+  .card {
+    height: 300px;
+  }
 }
 
+/* ✅ Mobile adjustments */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;   /* stack images vertically */
+    height: auto;             /* grow with content */
+  }
 
-/* Phones (<= 480px) */
+  .card p {
+    flex: none;
+    width: 100%;
+    height: 200px;
+  }
+ 
+
+  .card p:hover {
+    flex: none;               /* disable expand effect on small screens */
+    height: 250px;            /* small grow instead */
+  }
+}
+
 @media (max-width: 480px) {
-.card {
-  width: 100%;
-  height: 600px;
-  border-radius: 4px;
-  background: var(--dark-blue);
-  display: flex;
-  gap: 5px;
-  padding: .4em;
-}
-
-.card p {
-  height: 100%;
-  flex: 1;
-  overflow: hidden;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: all .5s;
-  background: #002;
-  border: 1px solid #dc00f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card p:hover {
-  flex: 4; /* expands hovered panel */
-}
-
-.card p img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all .5s;
-  transform: rotate(-90deg); /* start rotated like your text */
-}
-
-.card p span {
-    display: none;
-  min-width: 14em;
-  padding: .5em;
-  text-align: center;
-  transform: rotate(-90deg);
-  transition: all .5s;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  letter-spacing: .1em;
-}
-
-
-.card p:hover img {
-  transform: rotate(0); /* straighten image when expanded */
-}
+  .card p {
+    height: 150px;
+  }
+  .card p:hover {
+    height: 180px;
+  }
 }
 
 
@@ -234,8 +359,8 @@ box-shadow: 0 5px 15px rgba(160, 0, 109, 0.3); /* Eggplant shadow */
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background-color: #ffffff;
-    border-bottom: solid 1px var(--gold);
+    background-color:#242323!important;
+    border-bottom: solid 1px var(--accent)!important;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 1000;
 }
@@ -244,6 +369,11 @@ box-shadow: 0 5px 15px rgba(160, 0, 109, 0.3); /* Eggplant shadow */
     font-size: 1.5rem;
     font-weight: bold;
     color: #000000;
+}
+.nav-logo img {
+  height: 80px;   /* adjust to your liking */
+  width: auto;    /* keep aspect ratio */
+  display: block;
 }
 
 .navbar .nav-links {
@@ -255,7 +385,7 @@ box-shadow: 0 5px 15px rgba(160, 0, 109, 0.3); /* Eggplant shadow */
     text-decoration: none;
         font-size: 1rem;
     transition: color 0.3s ease;
-    color: #000;
+    color: #fff;;
 }
 .dropdown-item:hover{
      background:grey;
@@ -268,24 +398,24 @@ box-shadow: 0 5px 15px rgba(160, 0, 109, 0.3); /* Eggplant shadow */
 }
 
 .navbar.scrolled .logo {
-    color: var(--gold-light); /* Make the logo more vibrant */
+    color: var(--accent); /* Make the logo more vibrant */
 }
 
 .navbar.scrolled a {
-    color: var(--gold-light); /* Ensure links are readable */
+    color: var(--accent); /* Ensure links are readable */
 }
 
 .navbar.scrolled a:hover {
-    color: var(--gold); /* Add interaction with gold hover */
+    color: var(--accent); /* Add interaction with gold hover */
 }
 .navbar.scrolled .hamburger {
-    color: var(--gold-light);
+    color: var(--accent);
 }
 .navbar.scrolled .dropdown-menu{
  background-color:var(--primary-bg);
 }
 .navbar.scrolled .dropdown-item:hover{
-   background:#fff;
+   background:#000;
    color:#000;
 }
 .hero {
@@ -567,7 +697,7 @@ box-shadow: 0 5px 15px rgba(160, 0, 109, 0.3); /* Eggplant shadow */
         }
 
         .slogan-container span {
-            color: var(--gold-light); /* Highlight color */
+            color: var(--accent); /* Highlight color */
             animation: fadeWords 6s linear infinite;
         }
          @keyframes fadeWords {
