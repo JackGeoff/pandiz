@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hymmeske</title>
+    <link rel="stylesheet" href="../css/projects.css">
+     <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+   <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow secondary-text" style="width: 3rem; height: 3rem;" role="status">
+        </div>
+    </div>
+        
+    <header class="navbar">
+        <div class="logo">Royalty</div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About Us</a>
+            <a href="../service.html">Services</a>
+             <a href="../contact.html">Contact Us</a>
+                       </nav>
+         <div class="hamburger" id="hamburger">
+        &#9776; <!-- Hamburger icon -->
+    </div>
+    </header>
+    <div class="container">
+        <!-- Top Section -->
+        <div class="top-section">
+            <div class="text-content">
+                
+                <h1>Interior Design: Redefining Spaces with Sophistication</h1>
+                <p>At Royalty, we redefined an interior space with a black and white theme, creating a perfect balance of modern sophistication and timeless elegance. The black elements added depth and luxury, while the white brought a sense of openness and purity. A carefully placed sofa became the focal point, complemented by warm yellow bulbs that introduced a cozy yet refined ambiance. The addition of a sleek arch enhanced the space’s architectural charm, making it both inviting and visually striking. With our commitment to high-quality design, we don’t just create interiors—we crownovate spaces into masterpieces.</p>
+            </div>
+            <div class="featured-image">
+                <img src="../img/hymmeske/3.png" alt="Featured Image">
+            </div>
+        </div>
+        <!-- Bottom Grid -->
+        <div class="bottom-grid">
+            <!-- Left Column -->
+            <div class="left-column">
+                <div class="image-card">
+                    <img src="../img/hymmeske/3.png" alt="Left Image 1">
+                </div>
+                <div class="image-card">
+                    <img src="../img/hymmeske/4.png" alt="Left Image 2">
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="right-column">
+                <div class="image-card large">
+                    <img src="../img/hymmeske/shopsign.jpg" alt="Right Image 1">
+                </div>
+                <div class="right-bottom">
+                    <div class="image-card">
+                        <img src="../img/hymmeske/11.png" alt="Right Image 2">
+                    </div>
+                    <div class="image-card">
+                        <img src="../img/hymmeske/22.png" alt="Right Image 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button">
+    <a href="project1.html"><button class="button-p">Previous</button></a>
+<a href="project3.html"><button class="button-p">Next</button></a>
+</div>
+    
+    
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("img").forEach(img => {
+          img.addEventListener("load", function () {
+              img.classList.add("loaded");
+          });
+      });
+  });
+</script>
+
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/wow/wow.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+</html>

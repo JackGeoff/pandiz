@@ -1,0 +1,258 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    /* Color Palette */
+    --gold: #957e3d;
+    --gold-light: #bfa181;
+    --dark-blue: #0a1828;
+    --blue: #002349;
+    --eggplant: blueviolet;
+
+    /* Text and Backgrounds */
+    --primary-bg: var(--dark-blue);
+    --secondary-bg: var(--eggplant);
+    --primary-text: var(--gold);
+    --secondary-text: var(--blue);
+    --button-hover: var(--eggplant);
+
+    /* Miscellaneous */
+    --border-highlight: var(--gold-light);
+}
+
+h1, h2, h3 {
+    color: var(--primary-text); /* Gold for luxurious headings */
+    font-family: 'Playfair Display', serif;
+      font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+p {
+    color: #fff; /* Blue for clean readability */
+    font-family: 'Raleway', sans-serif;
+     font-size: 18px;
+    line-height: 1.6;
+}
+.secondary-text{
+    color: var(--eggplant);
+}
+body {
+    background-color: var(--primary-bg); /* Dark blue for luxury feel */
+    color: var(--secondary-text); /* Blue for readable text */
+    font-family: 'Raleway', sans-serif; /* Replace with 'Playfair Display' for headings */
+}
+
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+/* Top Section */
+.top-section {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 48px;
+}
+.text-content {
+    flex: 1;
+}
+.featured-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.featured-image {
+    flex: 1;
+    max-width: 600px; /* Limit image width */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.featured-image img {
+    width: 100%; /* Make it responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 16px; /* Add a smooth rounded effect */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    object-fit: cover;
+}
+
+/* Image Cards */
+.image-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+.image-card:hover {
+    transform: scale(1.02);
+}
+.image-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.image-card:hover::before {
+    opacity: 1;
+}
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* Bottom Grid */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 24px;
+}
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.left-column .image-card {
+    height: 500px;
+}
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.right-column .large {
+    height: 550px;
+}
+.right-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.right-bottom .image-card {
+    height: 250px;
+}
+
+
+.prev{
+	position:absolute;
+	bottom: -150%;
+	right: 10%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.button {
+    position: fixed;
+    bottom: 20px; /* Adjust this value if needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensures it's above other elements */
+}
+
+/* Ensure button styling remains consistent */
+.button-p {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border: 2px solid var(--gold-light);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 2px;
+}
+
+.button-p:hover {
+    background-color: var(--button-hover);
+    box-shadow: 0 5px 15px rgba(160, 0, 109, 0.3);
+    transform: translateY(-2px);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-section {
+        flex-direction: column;
+    }
+    .featured-image {
+        height: 400px;
+    }
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    .container {
+        padding: 24px 16px;
+    }
+    
+}
+
+.image-card {
+    min-height: 100px;
+}
+
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: var(--light);
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--primary);
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 1.5rem;
+    font-size: 15px;
+    background: var(--dark);
+}
+
+.footer .copyright a {
+    color: var(--light);
+}
+
+.footer .copyright a:hover {
+    color: var(--primary);
+}
+
+  
